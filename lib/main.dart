@@ -25,7 +25,9 @@ class BMIcalculator extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text("BMI CALCULATOR"),
+        title: const Text(
+          "BMI CALCULATOR",
+        ),
       ),
     );
   }
