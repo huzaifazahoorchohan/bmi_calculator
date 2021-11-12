@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'bmi_calculator.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,26 +10,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "BMI CALCULATOR",
-      home: BMIcalculator(),
-    );
-  }
-}
-
-class BMIcalculator extends StatelessWidget {
-  const BMIcalculator({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text(
-          "BMI CALCULATOR",
+    return MaterialApp(
+      theme: ThemeData(
+        scaffoldBackgroundColor: const Color(0xff111428),
+        colorScheme: const ColorScheme.light().copyWith(
+          primary: const Color(0xff0A0D22),
+        ),
+        textTheme: const TextTheme().copyWith(
+          bodyText1:
+              const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          bodyText2:
+              const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ),
+      debugShowCheckedModeBanner: false,
+      title: "BMI CALCULATOR",
+      home: const BMIcalculator(),
     );
   }
 }
