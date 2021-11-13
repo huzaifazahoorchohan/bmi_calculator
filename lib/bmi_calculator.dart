@@ -1,6 +1,10 @@
+import 'package:bmi_calculator/widgets/card_child.dart';
 import 'package:flutter/material.dart';
-
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'widgets/btn.dart';
 import 'widgets/card.dart';
+import 'widgets/slider_height.dart';
+import 'widgets/weight_age.dart';
 
 class BMIcalculator extends StatefulWidget {
   const BMIcalculator({Key? key}) : super(key: key);
@@ -22,37 +26,51 @@ class _BMIcalculatorState extends State<BMIcalculator> {
       body: Container(
         color: const Color(0XFF0A0D22),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Expanded(
                 child: Row(
               children: const [
-                Expanded(child: ReuseableCard()),
-                Expanded(child: ReuseableCard()),
+                Expanded(
+                    child: ReuseableCard(
+                  cardChild: CardChild(
+                    label: "MALE",
+                    icon: FontAwesomeIcons.mars,
+                  ),
+                )),
+                Expanded(
+                    child: ReuseableCard(
+                  cardChild: CardChild(
+                    label: "FEMALE",
+                    icon: FontAwesomeIcons.venus,
+                  ),
+                )),
               ],
             )),
-            const Expanded(child: ReuseableCard()),
+            const Expanded(
+              child: ReuseableCard(
+                cardChild: SliderHeight(),
+              ),
+            ),
             Expanded(
                 child: Row(
               children: const [
-                Expanded(child: ReuseableCard()),
-                Expanded(child: ReuseableCard()),
+                Expanded(
+                  child: ReuseableCard(
+                    cardChild: WeightAge(
+                      label: "WEIGHT",
+                    ),
+                  ),
+                ),
+                Expanded(
+                    child: ReuseableCard(
+                  cardChild: WeightAge(
+                    label: "AGE",
+                  ),
+                )),
               ],
             )),
-            Container(
-              margin: const EdgeInsets.only(top: 10.0),
-              color: const Color(0XFFFF0067),
-              width: double.infinity,
-              height: 70.0,
-              child: const Center(
-                  child: Text(
-                "CALCULATE YOUR BMI",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20.0,
-                  letterSpacing: 1.0,
-                ),
-              )),
-            )
+            const CalculateBtn()
           ],
         ),
       ),
