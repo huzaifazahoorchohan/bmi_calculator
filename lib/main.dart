@@ -10,10 +10,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      theme: ThemeData(
+          colorScheme: const ColorScheme.light().copyWith(
+        primary: const Color(0XFF0A0D22),
+      )),
       debugShowCheckedModeBanner: false,
       title: "BMI CALCULATOR",
-      home: BMIcalculator(),
+      home: const BMIcalculator(),
     );
   }
 }
